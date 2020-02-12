@@ -6,6 +6,8 @@ molpy
 
 A really cool molecule manipulation package.
 
+Can also upload XYZ files.
+
 ### Copyright
 
 Copyright (c) 2020, Alexander Blume
