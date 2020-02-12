@@ -6,7 +6,7 @@ molpy
 
 A really cool molecule manipulation package.
 
-hello Github. 
+This package has been created during the MolSSI python best practices course. 
 
 ### Copyright
 
