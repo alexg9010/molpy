@@ -38,13 +38,13 @@ def read_xyz(filename):
     coords
         Tho coordinates of the atoms.
     """
-    xyz_file = np.genfromtxt(
-        fname=filename, skip_header=2, dtype='unicode')
+    xyz_file = np.genfromtxt(fname=filename, skip_header=2, dtype='unicode')
     symbols = xyz_file[:, 0]
     coords = (xyz_file[:, 1:])
     coords = coords.astype(np.float)
-    
-    return {"symbols": symbols, "geometry" : coords}
+
+    return {"symbols": symbols, "geometry": coords}
+
 
 # def read_xyz(filename):
 
