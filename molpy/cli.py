@@ -9,10 +9,17 @@ def main():
     parser.add_argument("filename", type=str, help="The XYZ file to read.")
     parser.add_argument("index1", type=str, help="Index of the first atom.")
     parser.add_argument("index2", type=str, help="Index of the second atom.")
+    parser.add_argument("--distance", action="store_true",
+                        help="Return distance between atoms.")
 
     args = parser.parse_args()
-
     print(args)
 
     mol = molpy.util.read_xyz(args.filename)
     print(mol)
+
+    if args.distance:
+        dist = molpy.util.distance(
+            mol["geometry"][int(args.index1), ],
+            mol["geometry"][int(args.index2), ])
+        print(dist)
