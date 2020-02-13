@@ -10,6 +10,10 @@ A really cool molecule manipulation package.
 
 This package has been created during the MolSSI python best practices course. 
 
+### Docs
+
+[Rudimentary Documentation](https://molpy-nrx.readthedocs.io/en/latest/)
+
 ### Copyright
 
 Copyright (c) 2020, Alexander Blume
