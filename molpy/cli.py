@@ -1,5 +1,5 @@
 import argparse
-import molpy
+from .util import read_xyz, distance
 
 
 def main():
@@ -7,19 +7,13 @@ def main():
         description="A Molecule utility that reads XYZ files and calculates the distance between atoms at index1 and index2"
     )
     parser.add_argument("filename", type=str, help="The XYZ file to read.")
-    parser.add_argument("index1", type=str, help="Index of the first atom.")
-    parser.add_argument("index2", type=str, help="Index of the second atom.")
-    parser.add_argument("--distance", action="store_true",
-                        help="Return distance between atoms.")
+    parser.add_argument("index1", type=int, help="Index of the first atom.")
+    parser.add_argument("index2", type=int, help="Index of the second atom.")
 
     args = parser.parse_args()
-    print(args)
 
-    mol = molpy.util.read_xyz(args.filename)
-    print(mol)
+    mol = read_xyz(args.filename)
+    print(f"Reading XYZ file: {args.filename}\n")
 
-    if args.distance:
-        dist = molpy.util.distance(
-            mol["geometry"][int(args.index1), ],
-            mol["geometry"][int(args.index2), ])
-        print(dist)
+    print(distance(mol["geometry"][args.index1],
+                   mol["geometry"][args.index2]))
