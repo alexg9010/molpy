@@ -33,6 +33,20 @@ def canvas(with_attribution=True):
 
 
 class Molecule:
+    """
+    Simple Molecule
+
+    Molecule has a name !!!
+
+    Attributes
+    ----------
+    symbols : array_like
+            The atomic symbols.
+    geometry : array_like
+            Tho coordinates of the atoms.
+
+    """
+
     def __init__(self, symbols, geometry):
         self.symbols = np.asarray(symbols, dtype=str)
         self.geometry = np.asarray(geometry, dtype=float)
@@ -44,10 +58,39 @@ class Molecule:
             raise ValueError("Symbol and Geometry length do not match!")
 
     def distance(self, index1, index2):
+        """Calulate distance
+
+        Calculate Distance between Molecule atoms.
+
+        Parameters
+        ----------
+        index1 : int
+            The first atom.
+        index2 : int
+            The second atom.
+
+        Returns
+        -------
+        float
+            The distance between atoms.
+        """
         return distance(self.geometry[index1], self.geometry[index2])
 
 
 class NamedMolecule(Molecule):
+    """
+    Molecule with name
+
+    Molecule has a name !!!
+
+    Parameters
+    ----------
+    name : str
+
+    Attributes
+    ----------
+
+    """
 
     def __init__(self, name, symbols, geometry):
         self.name = name
