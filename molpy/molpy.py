@@ -47,6 +47,13 @@ class Molecule:
         return distance(self.geometry[index1], self.geometry[index2])
 
 
+class NamedMolecule(Molecule):
+
+    def __init__(self, name, symbols, geometry):
+        self.name = name
+        super().__init__(symbols, geometry)
+
+
 if __name__ == "__main__":
     # Do something if this file is invoked on its own
     print(canvas())
