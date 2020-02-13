@@ -33,10 +33,13 @@ def read_xyz(filename):
 
     Returns
     -------
-    symbols
-        The atomic symbols.
-    coords
-        Tho coordinates of the atoms.
+    molecule : `dict`
+        Molecule dictionary with keys:
+
+        `"symbols"`
+            The atomic symbols (`array_like).
+        `"geometry"`
+            Tho coordinates of the atoms (`array_like`).
     """
     xyz_file = np.genfromtxt(fname=filename, skip_header=2, dtype='unicode')
     symbols = xyz_file[:, 0]
