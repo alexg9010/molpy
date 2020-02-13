@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.DS_Store
 
 # C extensions
 *.so
@@ -97,6 +98,8 @@ ENV/
 
 # mkdocs documentation
 /site
+/docs/autosummary
 
 # mypy
 .mypy_cache/
+
