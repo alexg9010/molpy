@@ -22,4 +22,4 @@ def main():
     s1 = mol["symbols"][args.index1]
     s2 = mol["symbols"][args.index2]
 
-    print(f"Distance between atoms {args.index1}:{s1} and {args.index2}:{s2} = {dist:.3f} ")
+    print(f"Distance between atoms {args.index1}:{s1} and {args.index2}:{s2} = {dist:.3f}Å ")
