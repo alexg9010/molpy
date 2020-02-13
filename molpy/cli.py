@@ -15,5 +15,11 @@ def main():
     mol = read_xyz(args.filename)
     print(f"Reading XYZ file: {args.filename}\n")
 
-    print(distance(mol["geometry"][args.index1],
-                   mol["geometry"][args.index2]))
+    print("🚀Calculating distance...🚀")
+
+    dist = distance(mol["geometry"][args.index1], mol["geometry"][args.index2])
+
+    s1 = mol["symbols"][args.index1]
+    s2 = mol["symbols"][args.index2]
+
+    print(f"Distance between atoms {args.index1}:{s1} and {args.index2}:{s2} = {dist:.3f} ")
