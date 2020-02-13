@@ -33,6 +33,6 @@ def test_read_xyz(molecule, com, natoms):
 
 def test_get_molecule():
 
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(OSError):
         # with pytest.raises(FileNotFoundError):
         mol = molpy.data.get_molecule("non-existant")
