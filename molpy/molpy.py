@@ -5,6 +5,9 @@ A really cool molecule manipulation package.
 Handles the primary functions
 """
 
+import numpy as np
+from .util import distance
+
 
 def canvas(with_attribution=True):
     """
@@ -27,6 +30,71 @@ def canvas(with_attribution=True):
     if with_attribution:
         quote += "\n\t- Adapted from Henry David Thoreau"
     return quote
+
+
+class Molecule:
+    """
+    Simple Molecule
+
+    Molecule has a name !!!
+
+    Attributes
+    ----------
+    symbols : array_like
+            The atomic symbols.
+    geometry : array_like
+            Tho coordinates of the atoms.
+
+    """
+
+    def __init__(self, symbols, geometry):
+        self.symbols = np.asarray(symbols, dtype=str)
+        self.geometry = np.asarray(geometry, dtype=float)
+
+        if len(self.geometry.shape) != 2:
+            self.geometry = self.geometry.reshape(-1, 3)
+
+        if self.symbols.shape[0] != self.geometry.shape[0]:
+            raise ValueError("Symbol and Geometry length do not match!")
+
+    def distance(self, index1, index2):
+        """Calulate distance
+
+        Calculate Distance between Molecule atoms.
+
+        Parameters
+        ----------
+        index1 : int
+            The first atom.
+        index2 : int
+            The second atom.
+
+        Returns
+        -------
+        float
+            The distance between atoms.
+        """
+        return distance(self.geometry[index1], self.geometry[index2])
+
+
+class NamedMolecule(Molecule):
+    """
+    Molecule with name
+
+    Molecule has a name !!!
+
+    Parameters
+    ----------
+    name : str
+
+    Attributes
+    ----------
+
+    """
+
+    def __init__(self, name, symbols, geometry):
+        self.name = name
+        super().__init__(symbols, geometry)
 
 
 if __name__ == "__main__":
